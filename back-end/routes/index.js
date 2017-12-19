@@ -348,19 +348,22 @@ router.post('/stripe',(req, res, next)=>{
 					VALUES
 					(?,?,'Website Order','Paid',?)`
 					connection.query(insertIntoOrders,[Date.now(),Date.now(),customerId],(error3,results3)=>{
-						console.log(results3)
+						if(error3){
+							throw error3
+						}
+						// console.log(results3)
 						const newOrderNumber = results3.insertId;
 						// results2 (the select query above) contains an array of rows. 
 						// Each row has the uid, the productCOde, and the price
-						// map through this array, and add each one to the orderdetails tabl
+						// map through this array, and add each one to the orderdetails table
 
 						// Set up an array to stash our promises inside of
 						// After all the promises have been created, we wil run .all on this thing
 						var orderDetailPromises = [];
-						// Loop through all the rows in results2, which is...
+						// Loop through all the rows in results2, which is
 						// a row for every element in the users cart.
 						// Each row contains: uid, productCode,BuyPrice
-						// Call the one we're on, "cartRow"
+						// Call the one we're on, cart row
 						results2.map((cartRow)=>{
 							// Set up an insert query to add THIS product to the orderdetails table
 							var insertOrderDetail = `INSERT INTO orderdetails

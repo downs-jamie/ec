@@ -29,6 +29,10 @@ body {
 		}
 	}
 }
+.logoName{
+	font-size: 30px;
+	color: white;
+}
 .loginBtn{
 	color: lightgrey;
 	border-radius: 8px 8px 8px 8px;
@@ -54,6 +58,7 @@ body {
 		}
 	}
 }
+
 $menu_links: 8;
 @for $i from 0 to $menu_links{
 	.dropdown-links a:nth-child(#{$i}){

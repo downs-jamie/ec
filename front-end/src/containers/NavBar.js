@@ -44,7 +44,7 @@ class NavBar extends Component{
 			]
 		}else{
 			rightMenuBar = [
-				<li key={0}><button className="btn btn-primary" onClick={this.fakeLogin}>FAKE LOGIN</button></li>,
+				<li key={0}></li>,
 			    <li key={1}><Link to="/login">Sign in</Link> or <Link to="/register">Create an account</Link></li>,
 			    <li key={2}>(0) items in cart | ($0.00)</li>
 			]
@@ -79,7 +79,7 @@ class NavBar extends Component{
 			    	<div id="second" className="container-fluid navbar-default">
 			    		<div className="container">
 			    			<div className="nav navbar-header">
-			    				ClassicModels Logo
+			    				<span className="logoName">ClassicModels Logo</span>
 			    			</div>
 			    			<div className="nav navbar-nav pull-right">
 			    				{rightMenuBar}
